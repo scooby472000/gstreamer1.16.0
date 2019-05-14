@@ -15,6 +15,7 @@ yum install -y gobject-introspection-devel  # For Pango
 yum install -y libcurl-devel.x86_64 # For cmake
 yum install -y  libarchive-devel.x86_64 # for cmake
 yum install -y expat-devel  # For cmake
+yum install -y libsoup-devel.x86_64 # for good
 
 # -- glib-2.60
 wget http://ftp.gnome.org/pub/gnome/sources/glib/2.60/glib-2.60.2.tar.xz
