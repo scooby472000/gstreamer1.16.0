@@ -193,6 +193,37 @@ cd ..
 cp ./build/pkgscripts/libjpeg.pc ./build/pkgscripts/libturbojpeg.pc /usr/lib64/pkgconfig/
 cd ..
 
+#libpng
+https://downloads.sourceforge.net/libpng/libpng-1.6.37.tar.xz
+unxz libpng-*;tar -xf  libpng-*;cd libpng-*
+make install &&
+mkdir -v /usr/share/doc/libpng-1.6.37 &&
+cp -v README libpng-manual.txt /usr/share/doc/libpng-1.6.37
+cp ./libpng16.pc ./libpng.pc /usr/lib64/pkgconfig/
+cd ..
+
+#shared-mime
+wget https://gitlab.freedesktop.org/xdg/shared-mime-info/uploads/80c7f1afbcad2769f38aeb9ba6317a51/shared-mime-info-1.12.tar.xz
+unxz shared-mime*;tar -xf shared-mime-*;cd shared-mime*
+./configure --prefix=/usr &&
+make
+make install
+cp ./shared-mime-info.pc /usr/lib64/pkgconfig/
+cd ..
+
+#gdk-pixbuf
+wget http://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.38/gdk-pixbuf-2.38.1.tar.xz
+unxz gdk-pixbuf-*;tar -xf gdk-pixbuf-*;cd gdk-pixbuf-*
+mkdir build &&
+cd build &&
+
+meson --prefix=/usr .. &&
+ninja
+ninja install
+cd ..
+cp ./build/meson-private/gdk-pixbuf-xlib-2.0.pc ./build/meson-private/gdk-pixbuf-2.0.pc /usr/lib64/pkgconfig/
+cd ..
+
 # plugins good
 wget https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.16.0.tar.xz
 unxz gst-plugins-good*;tar -xf gst-plugins-good*;cd gst-plugins-good*
